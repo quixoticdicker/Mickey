@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgbd2rn8o3aj8"]
+[gd_scene load_steps=6 format=3 uid="uid://dgbd2rn8o3aj8"]
 
 [ext_resource type="Script" path="res://GameRunner.gd" id="1_n5vaf"]
+[ext_resource type="Texture2D" uid="uid://347b35tlmvm0" path="res://Assets/timer_inner.png" id="2_mye7r"]
+[ext_resource type="Texture2D" uid="uid://uyhl5b00yacf" path="res://Assets/timer_outer.png" id="3_6x57p"]
+[ext_resource type="Texture2D" uid="uid://bdtmaj5g207n5" path="res://Assets/timer_fill.png" id="4_m4gra"]
 
 [sub_resource type="Theme" id="Theme_5qekn"]
 
 [node name="GameRunner" type="Node2D"]
+z_index = 100
 script = ExtResource("1_n5vaf")
 
 [node name="Score" type="Label" parent="."]
@@ -18,3 +22,15 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 text = "0"
+
+[node name="Timer" type="TextureProgressBar" parent="."]
+z_index = 100
+offset_left = 864.0
+offset_top = 31.0
+offset_right = 992.0
+offset_bottom = 159.0
+value = 60.0
+fill_mode = 4
+texture_under = ExtResource("2_mye7r")
+texture_over = ExtResource("3_6x57p")
+texture_progress = ExtResource("4_m4gra")

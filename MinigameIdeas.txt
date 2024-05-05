@@ -1,0 +1,27 @@
+Putting a beehive on a electricity meter
+Getting dressed for a protest
+Cleaning pepper spray out of your eyes
+Dealing with tear gas (as seen in Hong Kong protests)
+Write a revolutionary punk balad
+Finish the protest chant
+Punch the war criminals
+Distribute the meshnet nodes to cover the city
+Treat heat stroke
+What do you say to the police
+
+Other TODOs:
+	Add countdown timer
+	* Add main menu
+	Add a pause menu
+	Create music
+	Create better art
+	Add transitions
+	Add custom cursors
+	Add sound effects
+	Add high-score list
+	Add custom key mapping
+	Make the UI look cohesive
+	Juicify
+	Add credits scene
+	Add gameover condition
+	Make stuff pretty

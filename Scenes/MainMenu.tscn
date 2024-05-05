@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://dee654w3lkndh"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_lyjyr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+script = ExtResource("1_lyjyr")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 126.0
+offset_right = 1024.0
+offset_bottom = 149.0
+text = "Mickey's Guide to Civil Disobedience"
+horizontal_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 181.0
+offset_right = 546.0
+offset_bottom = 212.0
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 226.0
+offset_right = 534.0
+offset_bottom = 257.0
+disabled = true
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 272.0
+offset_right = 532.0
+offset_bottom = 303.0
+disabled = true
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 318.0
+offset_right = 529.0
+offset_bottom = 349.0
+text = "Quit"

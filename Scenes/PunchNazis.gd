@@ -1,21 +1,29 @@
 extends Node2D
 
 # time in milliseconds before the scene is killed
-@export var time = 5.0
+@export var max_time = 5.0
 @export var parent_game : Node2D = null
 var score_set = false
 var total_nazi_count = 2.0
 var punched_nazis = 0.0
 var last_nazi_punched_at = time
+var time : float = 1.0
 
+func _ready():
+	time = max_time
 
 func _process(delta):
 	time -= delta
+	if parent_game != null:
+		parent_game.update_time(time)
 	if time <= 0.0:
 		set_score()
 		if parent_game == null:
 			await get_tree().create_timer(1.0).timeout
 			get_tree().quit()
+
+func get_max_time():
+	return max_time
 
 func set_parent(game_runner):
 	parent_game = game_runner
