@@ -13,7 +13,8 @@ var strike_boxes = []
 var minigames = [
 	preload("res://Scenes/PinTheTail.tscn"),
 	preload("res://Scenes/PunchNazis.tscn"),
-	preload("res://Scenes/ReadTheory.tscn")
+	preload("res://Scenes/ReadTheory.tscn"),
+	preload("res://Scenes/Interogation.tscn")
 ]
 var last_played : PackedScene
 var recently_played = []

@@ -31,7 +31,7 @@ func set_parent(game_runner):
 func set_score(score_mult):
 	if not score_set:
 		score_set = true
-		var time_mult = time / 5.0
+		var time_mult = time / max_time
 		var score = 100 * time_mult * score_mult
 		print("Score: %d" % score)
 		
