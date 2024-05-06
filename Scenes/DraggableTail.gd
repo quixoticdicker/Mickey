@@ -4,8 +4,11 @@ extends Node2D
 @export var minigame : Node2D
 var selected = false
 
+var fist_cursor = load("res://Assets/Cursor/Fist.png")
+
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
+		Input.set_custom_mouse_cursor(fist_cursor, Input.CURSOR_ARROW, Vector2(63, 32))
 		selected = true
 
 func _physics_process(delta):
