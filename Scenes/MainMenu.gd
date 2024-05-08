@@ -1,7 +1,5 @@
 extends Control
 
-var pointer_cursor = load("res://Assets/Cursor/Pointer.png")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var play_button = $NewGameButton
@@ -10,7 +8,7 @@ func _ready():
 	var exit_button = $QuitButton
 	exit_button.pressed.connect(on_exit_button_pressed)
 	
-	Input.set_custom_mouse_cursor(pointer_cursor, Input.CURSOR_ARROW, Vector2(48, 0))
+	CursorCont.set_cursor(CursorCont.CursorType.pointer)
 
 func on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/GameRunner.tscn")

@@ -37,8 +37,6 @@ texture_over = ExtResource("3_6x57p")
 texture_progress = ExtResource("4_m4gra")
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_10s46")]
-visible = false
-z_index = 110
 offset_left = 446.0
 offset_top = 319.0
 offset_right = 446.0

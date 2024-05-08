@@ -7,11 +7,9 @@ var score_set = false
 # setting this to non-zero in case _process can run before _ready
 var time : float = 1.0
 
-var hand_cursor = load("res://Assets/Cursor/Open.png")
-
 func _ready():
 	time = max_time
-	Input.set_custom_mouse_cursor(hand_cursor, Input.CURSOR_ARROW, Vector2(100, 86))
+	CursorCont.set_cursor(CursorCont.CursorType.hand)
 
 func _process(delta):
 	time -= delta

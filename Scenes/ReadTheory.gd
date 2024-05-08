@@ -15,7 +15,7 @@ func _ready():
 		var quotation_to_use = json_as_dict["quotes"].pick_random()
 		$Quotation.add_text("\"%s\"\n\t- %s" % [quotation_to_use["body"], quotation_to_use["speaker"]])
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	CursorCont.hide_cursor()
 
 func _process(delta):
 	time -= delta
@@ -37,7 +37,7 @@ func set_parent(game_runner):
 
 func set_score():
 	if not score_set:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		CursorCont.show_cursor()
 		score_set = true
 		
 		if parent_game != null:

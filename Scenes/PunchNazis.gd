@@ -9,11 +9,9 @@ var punched_nazis = 0.0
 var last_nazi_punched_at = time
 var time : float = 1.0
 
-var fist_cursor = load("res://Assets/Cursor/Fist.png")
-
 func _ready():
 	time = max_time
-	Input.set_custom_mouse_cursor(fist_cursor, Input.CURSOR_ARROW, Vector2(63, 32))
+	CursorCont.set_cursor(CursorCont.CursorType.fist)
 
 func _process(delta):
 	time -= delta

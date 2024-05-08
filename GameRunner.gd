@@ -4,6 +4,8 @@ var score = 0
 var current_game : Node2D
 var score_label : Label
 @export var num_strikes : int = 3
+@onready var pause_menu = $PauseMenu
+var paused = false
 
 var time : float = 0.0
 var max_time : float = 1.0
@@ -35,6 +37,9 @@ func _ready():
 	update_score()
 
 func _process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		pause_game()
+
 	if current_game == null:
 		print("Creating game")
 		# add a new minigame. This all insures that we don't play the same game twice
@@ -52,6 +57,20 @@ func _process(_delta):
 		add_child(current_game)
 		current_game.set_parent(self)
 		max_time = current_game.get_max_time()
+
+func pause_game():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+		CursorCont.restore_cursor_settings()
+	else:
+		pause_menu.show()
+		CursorCont.save_cursor_settings()
+		CursorCont.show_cursor()
+		CursorCont.set_cursor(CursorCont.CursorType.pointer)
+		Engine.time_scale = 0
+	
+	paused = !paused
 
 func update_time(new_time):
 	$Timer.value = 100.0 * (1 - (new_time / max_time))

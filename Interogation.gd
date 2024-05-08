@@ -6,8 +6,6 @@ extends Node2D
 var score_set = false
 var time : float = 1.0
 
-var pointer_cursor = load("res://Assets/Cursor/Pointer.png")
-
 func _on_correct_button_pressed():
 	set_score(true)
 
@@ -17,7 +15,7 @@ func _on_wrong_button_pressed():
 func _ready():
 	time = max_time
 	
-	Input.set_custom_mouse_cursor(pointer_cursor, Input.CURSOR_ARROW, Vector2(48, 0))
+	CursorCont.set_cursor(CursorCont.CursorType.pointer)
 
 func _process(delta):
 	time -= delta
