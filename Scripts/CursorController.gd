@@ -7,8 +7,8 @@ var pointer_cursor = load("res://Assets/Cursor/Pointer_half.png")
 var hand_cursor = load("res://Assets/Cursor/Open_half.png")
 var last_cursor = CursorType.pointer
 var last_visibility = Input.MOUSE_MODE_VISIBLE
-var saved_cursor
-var saved_visibility
+var saved_cursor : CursorType
+var saved_visibility : Input.MouseMode
 
 enum CursorType {fist, pointer, hand}
 
@@ -21,6 +21,14 @@ func set_cursor(cursor_type : CursorType):
 			Input.set_custom_mouse_cursor(pointer_cursor, Input.CURSOR_ARROW, Vector2(24, 0))
 		CursorType.hand:
 			Input.set_custom_mouse_cursor(hand_cursor, Input.CURSOR_ARROW, Vector2(50, 43))
+
+func set_cursor_visibility(visible : bool):
+	if visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		last_visibility = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		last_visibility = Input.MOUSE_MODE_HIDDEN
 
 func hide_cursor():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

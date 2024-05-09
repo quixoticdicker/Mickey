@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var pin_target : Node2D
-@export var minigame : Node2D
+@export var minigame : Minigame
 var selected = false
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
@@ -19,4 +19,4 @@ func _input(event):
 			selected = false
 			var target_distance = global_position.distance_to(pin_target.global_position)
 			var score = 1/(target_distance + 1)
-			minigame.set_score(score)
+			minigame._set_score(score)

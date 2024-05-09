@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg3dywm5sp2bf"]
+
+[ext_resource type="Texture2D" uid="uid://6t3lybjl2j0p" path="res://Assets/Heat.png" id="1_t42w8"]
+[ext_resource type="Script" path="res://Scenes/HeatExaustion.gd" id="1_xcxi3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xcxi3")
+has_info = true
+
+[node name="Heat" type="Sprite2D" parent="."]
+texture = ExtResource("1_t42w8")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 386.0
+offset_top = 47.0
+offset_right = 581.0
+offset_bottom = 70.0
+text = "Treat the heat exaustion!"

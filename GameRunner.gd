@@ -1,7 +1,7 @@
 extends Node2D
 
 var score = 0
-var current_game : Node2D
+var current_game : Minigame
 var score_label : Label
 @export var num_strikes : int = 3
 @onready var pause_menu = $PauseMenu
@@ -12,14 +12,15 @@ var max_time : float = 1.0
 var strike_count : int = 0
 var strike_boxes = []
 
-var minigames = [
+var minigames : Array[PackedScene] = [
 	preload("res://Scenes/PinTheTail.tscn"),
 	preload("res://Scenes/PunchNazis.tscn"),
 	preload("res://Scenes/ReadTheory.tscn"),
-	preload("res://Scenes/Interogation.tscn")
+	preload("res://Scenes/Interogation.tscn"),
+	preload("res://Scenes/HeatExaustion.tscn")
 ]
 var last_played : PackedScene
-var recently_played = []
+var recently_played : Array[PackedScene] = []
 
 func _draw():
 	# regarding strikes
@@ -57,6 +58,7 @@ func _process(_delta):
 		add_child(current_game)
 		current_game.set_parent(self)
 		max_time = current_game.get_max_time()
+		$InfoButton.visible = current_game.has_info
 
 func pause_game():
 	if paused:
@@ -90,3 +92,15 @@ func add_score(to_add):
 
 	if strike_count >= num_strikes:
 		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+
+# This button controlls the info menu
+func _on_button_pressed():
+	pass # Replace with function body.
+
+func _on_button_mouse_entered():
+	CursorCont.save_cursor_settings()
+	CursorCont.set_cursor(CursorCont.CursorType.pointer)
+	CursorCont.set_cursor_visibility(true)
+
+func _on_button_mouse_exited():
+	CursorCont.restore_cursor_settings()

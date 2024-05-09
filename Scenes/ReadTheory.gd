@@ -1,10 +1,4 @@
-extends Node2D
-
-# time in seconds before the scene is killed
-@export var max_time = 7.0
-@export var parent_game : Node2D = null
-var score_set = false
-var time : float = 1.0
+extends Minigame
 
 func _ready():
 	time = max_time
@@ -17,25 +11,10 @@ func _ready():
 	
 	CursorCont.hide_cursor()
 
-func _process(delta):
-	time -= delta
-	if parent_game != null:
-		parent_game.update_time(time)
-	if time <= 0.0:
-		set_score()
-		if parent_game == null:
-			get_tree().quit()
-
 func _draw():
 	draw_rect(Rect2(0, 0, 1024, 768), Color.BLACK)
 
-func get_max_time():
-	return max_time
-
-func set_parent(game_runner):
-	parent_game = game_runner
-
-func set_score():
+func _set_score(score_mult : float) -> void:
 	if not score_set:
 		CursorCont.show_cursor()
 		score_set = true
