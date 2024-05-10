@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8fnoq8o20ndd"]
 
-[ext_resource type="Script" path="res://Interogation.gd" id="1_inr2e"]
+[ext_resource type="Script" path="res://Scripts/Interogation.gd" id="1_inr2e"]
 [ext_resource type="Texture2D" uid="uid://dfee1uv8nh4lr" path="res://Assets/PoliceStation.png" id="2_8gogu"]
 
 [node name="Node2D" type="Node2D"]

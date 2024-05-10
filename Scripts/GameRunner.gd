@@ -16,11 +16,11 @@ var strike_count : int = 0
 var strike_boxes = []
 
 var minigames : Array[PackedScene] = [
-	preload("res://Scenes/PinTheTail.tscn"),
-	preload("res://Scenes/PunchNazis.tscn"),
-	preload("res://Scenes/ReadTheory.tscn"),
-	preload("res://Scenes/Interogation.tscn"),
-	preload("res://Scenes/HeatExaustion.tscn")
+	preload("res://Scenes/Minigames/PinTheTail.tscn"),
+	preload("res://Scenes/Minigames/PunchNazis.tscn"),
+	preload("res://Scenes/Minigames/ReadTheory.tscn"),
+	preload("res://Scenes/Minigames/Interogation.tscn"),
+	preload("res://Scenes/Minigames/HeatExaustion.tscn")
 ]
 var last_played : PackedScene
 var recently_played : Array[PackedScene] = []

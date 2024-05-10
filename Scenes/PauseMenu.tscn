@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://be73boiej3eci"]
 
-[ext_resource type="Script" path="res://Scenes/PauseMenu.gd" id="1_i8b1o"]
-[ext_resource type="Shader" path="res://Scenes/PauseMenu.gdshader" id="1_kgoyi"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_i8b1o"]
+[ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="2_es3g3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_seq8a"]
-shader = ExtResource("1_kgoyi")
+shader = ExtResource("2_es3g3")
 shader_parameter/amount = 2.5
 
 [node name="PauseMenu" type="Control"]

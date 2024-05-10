@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5m2q81rllwiw"]
 
-[ext_resource type="Script" path="res://Scenes/PinTheTail.gd" id="1_p2euu"]
+[ext_resource type="Script" path="res://Scripts/PinTheTail.gd" id="1_p2euu"]
 [ext_resource type="Texture2D" uid="uid://c8gh43ddqlf2t" path="res://Assets/JustThePig.png" id="1_pfgh3"]
-[ext_resource type="Script" path="res://Scenes/DraggableTail.gd" id="2_0j18q"]
+[ext_resource type="Script" path="res://Scripts/DraggableTail.gd" id="2_0j18q"]
 [ext_resource type="Texture2D" uid="uid://lmad5v8ka42n" path="res://Assets/TheTail.png" id="2_ofnif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjih5"]
