@@ -6,6 +6,9 @@ var score_label : Label
 @export var num_strikes : int = 3
 @onready var pause_menu = $PauseMenu
 var paused = false
+var pausable = true
+@onready var info_menu = $InfoMenu
+var shown_info = false
 
 var time : float = 0.0
 var max_time : float = 1.0
@@ -74,6 +77,15 @@ func pause_game():
 	
 	paused = !paused
 
+func show_info():
+	if shown_info:
+		info_menu.hide()
+		Engine.time_scale = 1
+	else:
+		info_menu.show()
+		Engine.time_scale = 0
+	shown_info = !shown_info
+
 func update_time(new_time):
 	$Timer.value = 100.0 * (1 - (new_time / max_time))
 
@@ -95,7 +107,7 @@ func add_score(to_add):
 
 # This button controlls the info menu
 func _on_button_pressed():
-	pass # Replace with function body.
+	show_info()
 
 func _on_button_mouse_entered():
 	CursorCont.save_cursor_settings()
