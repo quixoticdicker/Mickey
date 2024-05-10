@@ -34,7 +34,7 @@ func _draw():
 		draw_circle(strike_position, 16, Color.DARK_GRAY)
 		draw_arc(strike_position, 16, 0, 360, 360, Color.LIGHT_GRAY)
 		if i < strike_count:
-			draw_line(strike_position + Vector2(-16, 16), strike_position + Vector2(16, -16), Color.DARK_RED, 4.0)
+			draw_line(strike_position + Vector2(-20, 20), strike_position + Vector2(20, -20), Color.FIREBRICK, 4.0)
 
 func _ready():
 	score_label = $Score
@@ -90,7 +90,14 @@ func update_time(new_time):
 	$Timer.value = 100.0 * (1 - (new_time / max_time))
 
 func update_score():
-	score_label.text = str(floor(score))
+	var int_score : int = floor(score)
+	var str_score = ""
+	while int_score >= 1000:
+		var lowest = int_score % 1000
+		str_score = "," + str(lowest) + str_score
+		int_score = floor(int_score / 1000)
+	str_score = str(int_score) + str_score
+	score_label.text = str_score
 
 func add_score(to_add):
 	if to_add <= 0:
