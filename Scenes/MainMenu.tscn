@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dee654w3lkndh"]
+[gd_scene load_steps=7 format=3 uid="uid://dee654w3lkndh"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_lyjyr"]
+[ext_resource type="FontFile" uid="uid://c0hb2eefparrf" path="res://Assets/Fonts/Titan_One/TitanOne-Regular.ttf" id="2_jfrcg"]
 [ext_resource type="Texture2D" uid="uid://bmm4jugg2eh55" path="res://Assets/MainMenu.png" id="2_wxs2t"]
+[ext_resource type="FontFile" uid="uid://dejjpshyyahc" path="res://Assets/Fonts/Borel/Borel-Regular.ttf" id="3_guckf"]
+[ext_resource type="FontFile" uid="uid://ckielnlo8ge0b" path="res://Assets/Fonts/Lobster/Lobster-Regular.ttf" id="4_4gcap"]
+[ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="5_5weuc"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,48 +16,80 @@ offset_right = 1024.0
 offset_bottom = 768.0
 script = ExtResource("1_lyjyr")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="MickeyLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_top = 126.0
-offset_right = 1024.0
-offset_bottom = 149.0
-text = "Mickey's Guide to Civil Disobedience"
+offset_left = 261.0
+offset_top = 49.0
+offset_right = 716.0
+offset_bottom = 134.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jfrcg")
+theme_override_font_sizes/font_size = 100
+text = "Mickey's"
 horizontal_alignment = 1
+uppercase = true
 
-[node name="NewGameButton" type="Button" parent="Control"]
+[node name="TitleLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 383.0
-offset_top = 262.0
-offset_right = 548.0
-offset_bottom = 300.0
+offset_left = 248.0
+offset_top = 169.0
+offset_right = 737.0
+offset_bottom = 242.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_guckf")
+theme_override_font_sizes/font_size = 36
+text = "Guide to Civil Disobedience"
+
+[node name="SubtitleLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 675.0
+offset_right = 663.0
+offset_bottom = 720.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_4gcap")
+theme_override_font_sizes/font_size = 36
+text = "An Anti-capitalist Game
+"
+
+[node name="Buttons" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 330.0
+offset_right = 651.0
+offset_bottom = 574.0
+
+[node name="NewGameButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+theme = ExtResource("5_5weuc")
 text = "New Game"
 
-[node name="OptionsButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 407.0
-offset_top = 305.0
-offset_right = 534.0
-offset_bottom = 342.0
+[node name="OptionsButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+theme = ExtResource("5_5weuc")
 disabled = true
 text = "Options"
 
-[node name="CreditsButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 410.0
-offset_top = 352.0
-offset_right = 532.0
-offset_bottom = 388.0
+[node name="CreditsButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+theme = ExtResource("5_5weuc")
 disabled = true
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 412.0
-offset_top = 397.0
-offset_right = 498.0
-offset_bottom = 431.0
+[node name="QuitButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+theme = ExtResource("5_5weuc")
 text = "Quit"
 
 [node name="MainMenu" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_wxs2t")
 centered = false

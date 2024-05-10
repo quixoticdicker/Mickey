@@ -45,7 +45,6 @@ func _process(_delta):
 		pause_game()
 
 	if current_game == null:
-		print("Creating game")
 		# add a new minigame. This all insures that we don't play the same game twice
 		if minigames.size() <= 0:
 			minigames = recently_played
@@ -94,7 +93,7 @@ func update_score():
 	var str_score = ""
 	while int_score >= 1000:
 		var lowest = int_score % 1000
-		str_score = "," + str(lowest) + str_score
+		str_score = "," + str(lowest).pad_zeros(3) + str_score
 		int_score = floor(int_score / 1000)
 	str_score = str(int_score) + str_score
 	score_label.text = str_score

@@ -1,45 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8fnoq8o20ndd"]
+[gd_scene load_steps=4 format=3 uid="uid://b8fnoq8o20ndd"]
 
-[ext_resource type="Script" path="res://Scripts/Interogation.gd" id="1_inr2e"]
-[ext_resource type="Texture2D" uid="uid://dfee1uv8nh4lr" path="res://Assets/PoliceStation.png" id="2_8gogu"]
+[ext_resource type="Script" path="res://Scripts/Interogation.gd" id="1_uepgq"]
+[ext_resource type="Texture2D" uid="uid://dfee1uv8nh4lr" path="res://Assets/PoliceStation.png" id="2_ttljn"]
+[ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="3_s3jic"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_inr2e")
+script = ExtResource("1_uepgq")
 
 [node name="PoliceStation" type="Sprite2D" parent="."]
-texture = ExtResource("2_8gogu")
+texture = ExtResource("2_ttljn")
 centered = false
 
-[node name="OnlyButton" type="Button" parent="."]
-offset_left = 84.0
-offset_top = 91.0
-offset_right = 182.0
-offset_bottom = 122.0
+[node name="Buttons" type="VBoxContainer" parent="."]
+offset_left = 278.0
+offset_top = 498.0
+offset_right = 698.0
+offset_bottom = 757.0
+theme = ExtResource("3_s3jic")
+
+[node name="OnlyButton" type="Button" parent="Buttons"]
+layout_mode = 2
 text = "I was only...
 "
 
-[node name="DidntKnowButton" type="Button" parent="."]
-offset_left = 76.0
-offset_top = 134.0
-offset_right = 198.0
-offset_bottom = 165.0
+[node name="DidntKnowButton" type="Button" parent="Buttons"]
+layout_mode = 2
 text = "I didn't know..."
 
-[node name="SilentButton" type="Button" parent="."]
-offset_left = 28.0
-offset_top = 178.0
-offset_right = 254.0
-offset_bottom = 209.0
+[node name="SilentButton" type="Button" parent="Buttons"]
+layout_mode = 2
 text = "Stay silent / Ask for a lawyer"
 
-[node name="SorryButton" type="Button" parent="."]
-offset_left = 93.0
-offset_top = 224.0
-offset_right = 183.0
-offset_bottom = 255.0
+[node name="SorryButton" type="Button" parent="Buttons"]
+layout_mode = 2
 text = "I'm sorry..."
 
-[connection signal="pressed" from="OnlyButton" to="." method="_on_wrong_button_pressed"]
-[connection signal="pressed" from="DidntKnowButton" to="." method="_on_wrong_button_pressed"]
-[connection signal="pressed" from="SilentButton" to="." method="_on_correct_button_pressed"]
-[connection signal="pressed" from="SorryButton" to="." method="_on_wrong_button_pressed"]
+[connection signal="pressed" from="Buttons/OnlyButton" to="." method="_on_wrong_button_pressed"]
+[connection signal="pressed" from="Buttons/DidntKnowButton" to="." method="_on_wrong_button_pressed"]
+[connection signal="pressed" from="Buttons/SilentButton" to="." method="_on_correct_button_pressed"]
+[connection signal="pressed" from="Buttons/SorryButton" to="." method="_on_wrong_button_pressed"]
