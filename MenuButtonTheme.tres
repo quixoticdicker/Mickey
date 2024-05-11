@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ctyqqea0uakhs"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://ctyqqea0uakhs"]
 
 [ext_resource type="FontFile" uid="uid://cgklw0qaoy516" path="res://Assets/Fonts/Shantell_Sans/static/ShantellSans-Bold.ttf" id="1_pt2ij"]
 [ext_resource type="Texture2D" uid="uid://bo46f7cat63ax" path="res://Assets/ButtonTiles.png" id="2_msofr"]
+[ext_resource type="FontFile" uid="uid://jpbnm5t23u4k" path="res://Assets/Fonts/Shantell_Sans/ShantellSans-VariableFont_BNCE,INFM,SPAC,wght.ttf" id="3_0axsk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jnu6"]
 texture = ExtResource("2_msofr")
@@ -37,9 +38,15 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(32, 160, 160, 96)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0myah"]
+texture = ExtResource("2_msofr")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(32, 160, 160, 96)
+
 [resource]
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 4
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_pt2ij")
 Button/styles/disabled = SubResource("StyleBoxTexture_4jnu6")
@@ -47,3 +54,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_0vpro")
 Button/styles/hover = SubResource("StyleBoxTexture_kbmov")
 Button/styles/normal = SubResource("StyleBoxTexture_0ajka")
 Button/styles/pressed = SubResource("StyleBoxTexture_eklyu")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("3_0axsk")
+Label/styles/normal = SubResource("StyleBoxTexture_0myah")

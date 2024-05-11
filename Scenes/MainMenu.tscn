@@ -18,10 +18,10 @@ script = ExtResource("1_lyjyr")
 
 [node name="MickeyLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 261.0
+offset_left = 271.0
 offset_top = 49.0
-offset_right = 716.0
-offset_bottom = 134.0
+offset_right = 754.0
+offset_bottom = 164.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
@@ -35,9 +35,9 @@ uppercase = true
 
 [node name="TitleLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 248.0
+offset_left = 269.0
 offset_top = 169.0
-offset_right = 737.0
+offset_right = 758.0
 offset_bottom = 242.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -48,9 +48,9 @@ text = "Guide to Civil Disobedience"
 
 [node name="SubtitleLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 324.0
+offset_left = 343.0
 offset_top = 675.0
-offset_right = 663.0
+offset_right = 682.0
 offset_bottom = 720.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -62,9 +62,9 @@ text = "An Anti-capitalist Game
 
 [node name="Buttons" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = 337.0
+offset_left = 355.0
 offset_top = 330.0
-offset_right = 651.0
+offset_right = 669.0
 offset_bottom = 574.0
 
 [node name="NewGameButton" type="Button" parent="Control/Buttons"]
