@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dfee1uv8nh4lr" path="res://Assets/PoliceStation.png" id="2_ttljn"]
 [ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="3_s3jic"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_uepgq")
+buttons = NodePath("Buttons")
 
 [node name="PoliceStation" type="Sprite2D" parent="."]
 texture = ExtResource("2_ttljn")

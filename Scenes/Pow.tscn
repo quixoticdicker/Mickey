@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cudmn65shmwjn"]
+
+[ext_resource type="Script" path="res://Scripts/Pow.gd" id="1_xh3ri"]
+[ext_resource type="Texture2D" uid="uid://cprbt72384q83" path="res://Assets/Pow.png" id="2_qn2wh"]
+[ext_resource type="FontFile" uid="uid://dj6doea64s2xw" path="res://Assets/Fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf" id="3_5qidb"]
+
+[node name="Node2D" type="Node2D"]
+z_index = 50
+script = ExtResource("1_xh3ri")
+
+[node name="Pow" type="Sprite2D" parent="."]
+texture = ExtResource("2_qn2wh")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -285.0
+offset_top = -144.0
+offset_right = 308.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("3_5qidb")
+theme_override_font_sizes/font_size = 200
+text = "bam"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

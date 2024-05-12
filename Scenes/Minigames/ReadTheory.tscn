@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bu8kpltje2lh0"]
+[gd_scene load_steps=3 format=3 uid="uid://bu8kpltje2lh0"]
 
 [ext_resource type="Script" path="res://Scripts/ReadTheory.gd" id="1_vuaco"]
+[ext_resource type="FontFile" uid="uid://dejjpshyyahc" path="res://Assets/Fonts/Borel/Borel-Regular.ttf" id="2_xslt5"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vuaco")
@@ -8,10 +9,11 @@ max_time = 7.0
 mouse_visible = false
 
 [node name="ReadTheoryLabel" type="Label" parent="."]
-offset_left = 60.0
-offset_top = 47.0
-offset_right = 483.0
-offset_bottom = 265.0
+offset_left = 140.0
+offset_top = 63.0
+offset_right = 563.0
+offset_bottom = 281.0
+theme_override_fonts/font = ExtResource("2_xslt5")
 theme_override_font_sizes/font_size = 70
 text = "Read Theory"
 
@@ -20,6 +22,7 @@ offset_left = 125.0
 offset_top = 166.0
 offset_right = 893.0
 offset_bottom = 656.0
+mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 30
 fit_content = true
 scroll_active = false

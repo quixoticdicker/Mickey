@@ -14,7 +14,12 @@ func _set_score(score_mult : float) -> void:
 		if parent_game != null:
 			parent_game.add_score(score)
 
+var pow = preload("res://Scenes/Pow.tscn")
+
 func punch_nazi():
+	var pow_scene = pow.instantiate()
+	add_child(pow_scene)
+	pow_scene.global_position = get_viewport_rect().size / 2
 	punched_nazis = punched_nazis + 1.0
 	last_nazi_punched_at = time
 	if punched_nazis >= total_nazi_count:

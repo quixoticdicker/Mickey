@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d2up6rwb4ko0c"]
+
+[ext_resource type="FontFile" uid="uid://dfs2bap7rteni" path="res://Assets/Fonts/Jersey_10/Jersey10-Regular.ttf" id="1_kd0xc"]
+
+[resource]
+default_font = ExtResource("1_kd0xc")
+default_font_size = 64
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3

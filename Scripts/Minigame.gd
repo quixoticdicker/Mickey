@@ -5,11 +5,25 @@ class_name Minigame
 @export var max_time : float = 5.0
 @export var mouse_visible : bool = true
 @export var mouse_cursor : CursorCont.CursorType = CursorCont.CursorType.pointer
-@export var has_info: bool = false
+@export var has_info : bool = false
+@export var info_text : String = "Unspecified"
+@export var buttons : Node
 
 var parent_game : Node2D = null
 var score_set = false
 var time : float = 1.0
+
+func _disable_buttons():
+	if buttons != null:
+		for child in buttons.get_children():
+			if child is Button:
+				child.disabled = true
+
+func _enable_buttons():
+	if buttons != null:
+		for child in buttons.get_children():
+			if child is Button:
+				child.disabled = false
 
 func _ready():
 	time = max_time
@@ -38,7 +52,7 @@ func _set_score(score_multiplier : float) -> void:
 			parent_game.add_score(score)
 
 func _get_info() -> String:
-	return "Unspecified info text"
+	return info_text
 
 func set_parent(parent : Node2D) -> void:
 	parent_game = parent

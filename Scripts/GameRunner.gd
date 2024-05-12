@@ -20,10 +20,17 @@ var minigames : Array[PackedScene] = [
 	preload("res://Scenes/Minigames/PunchNazis.tscn"),
 	preload("res://Scenes/Minigames/ReadTheory.tscn"),
 	preload("res://Scenes/Minigames/Interogation.tscn"),
-	preload("res://Scenes/Minigames/HeatExaustion.tscn")
+	preload("res://Scenes/Minigames/HeatExaustion.tscn"),
+	preload("res://Scenes/Minigames/EnergyMeter.tscn"),
 ]
 var last_played : PackedScene
 var recently_played : Array[PackedScene] = []
+
+@onready var strike_font : Font = load("res://Assets/Fonts/Homemade_Apple/HomemadeApple-Regular.ttf")
+var strike_offset = Vector2(-10, 18) # the offset from the circle (strike position) to draw the actual strike
+
+enum MenuState {none, pause, info}
+var menu_state : MenuState = MenuState.none
 
 func _draw():
 	# regarding strikes
@@ -34,7 +41,7 @@ func _draw():
 		draw_circle(strike_position, 16, Color.DARK_GRAY)
 		draw_arc(strike_position, 16, 0, 360, 360, Color.LIGHT_GRAY)
 		if i < strike_count:
-			draw_line(strike_position + Vector2(-20, 20), strike_position + Vector2(20, -20), Color.FIREBRICK, 4.0)
+			draw_string(strike_font, strike_position + strike_offset, '/', HORIZONTAL_ALIGNMENT_CENTER, -1, 40, Color.FIREBRICK, 3, 0, TextServer.ORIENTATION_HORIZONTAL)
 
 func _ready():
 	score_label = $Score
@@ -67,8 +74,10 @@ func pause_game():
 		pause_menu.hide()
 		Engine.time_scale = 1
 		CursorCont.restore_cursor_settings()
+		current_game._enable_buttons()
 	else:
 		pause_menu.show()
+		current_game._disable_buttons()
 		CursorCont.save_cursor_settings()
 		CursorCont.show_cursor()
 		CursorCont.set_cursor(CursorCont.CursorType.pointer)
@@ -89,14 +98,7 @@ func update_time(new_time):
 	$Timer.value = 100.0 * (1 - (new_time / max_time))
 
 func update_score():
-	var int_score : int = floor(score)
-	var str_score = ""
-	while int_score >= 1000:
-		var lowest = int_score % 1000
-		str_score = "," + str(lowest).pad_zeros(3) + str_score
-		int_score = floor(int_score / 1000)
-	str_score = str(int_score) + str_score
-	score_label.text = str_score
+	score_label.text = ScoreTrack.score_to_string(score)
 
 func add_score(to_add):
 	if to_add <= 0:
@@ -109,7 +111,8 @@ func add_score(to_add):
 	current_game.queue_free()
 
 	if strike_count >= num_strikes:
-		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		ScoreTrack.score = score
+		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
 # This button controlls the info menu
 func _on_button_pressed():

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://7737vnit87qf"]
+[gd_scene load_steps=4 format=3 uid="uid://7737vnit87qf"]
 
+[ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="1_fw1vu"]
 [ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="1_trexr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8xqr"]
+shader = ExtResource("1_fw1vu")
+shader_parameter/amount = 2.5
 
 [node name="InfoMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +14,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_x8xqr")
+offset_left = -1237.0
+offset_top = -740.0
+offset_right = 1161.0
+offset_bottom = 884.0
+color = Color(0.513726, 0.513726, 0.513726, 0.901961)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

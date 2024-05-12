@@ -66,11 +66,17 @@ offset_left = 355.0
 offset_top = 330.0
 offset_right = 669.0
 offset_bottom = 574.0
+theme = ExtResource("5_5weuc")
 
 [node name="NewGameButton" type="Button" parent="Control/Buttons"]
 layout_mode = 2
 theme = ExtResource("5_5weuc")
 text = "New Game"
+
+[node name="TutorialButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+disabled = true
+text = "Tutorial"
 
 [node name="OptionsButton" type="Button" parent="Control/Buttons"]
 layout_mode = 2

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var pin_target : Node2D
+@export var pin_target : ReferenceRect
 @export var minigame : Minigame
 var selected = false
 var mouse_offset : Vector2
@@ -19,6 +19,8 @@ func _input(event):
 	if event is InputEventMouseButton and selected:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			selected = false
-			var target_distance = global_position.distance_to(pin_target.global_position)
-			var score = clampf((100 - target_distance) / 100, 0.0, 1.0)
-			minigame._set_score(score)
+			var within_target = pin_target.get_rect().has_point(position)
+			if within_target:
+				minigame._set_score(1.0)
+			else:
+				minigame._set_score(0.0)

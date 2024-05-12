@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dyyhf0fspnuy6"]
+
+[ext_resource type="FontFile" uid="uid://c0hb2eefparrf" path="res://Assets/Fonts/Titan_One/TitanOne-Regular.ttf" id="1_arskx"]
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_cxiq8"]
+[ext_resource type="Theme" uid="uid://bl7gmya124gr4" path="res://Themes/SubTitle.tres" id="2_eqfcf"]
+[ext_resource type="Theme" uid="uid://d2up6rwb4ko0c" path="res://Themes/Score.tres" id="3_hfkuj"]
+[ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="4_q5jbe"]
+[ext_resource type="FontFile" uid="uid://ckielnlo8ge0b" path="res://Assets/Fonts/Lobster/Lobster-Regular.ttf" id="5_3mh2n"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_cxiq8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+
+[node name="GameOverLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 49.0
+offset_right = 813.0
+offset_bottom = 164.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_arskx")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+uppercase = true
+
+[node name="ScoreDescriptionLabel" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 343.0
+offset_top = 217.0
+offset_right = 565.0
+offset_bottom = 290.0
+size_flags_horizontal = 4
+theme = ExtResource("2_eqfcf")
+text = "Final Score: "
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 569.0
+offset_top = 209.0
+offset_right = 681.0
+offset_bottom = 279.0
+theme = ExtResource("3_hfkuj")
+text = "6,354"
+
+[node name="Buttons" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 353.0
+offset_right = 669.0
+offset_bottom = 501.0
+theme = ExtResource("4_q5jbe")
+
+[node name="ReplayButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+text = "Play Again"
+
+[node name="MainMenuButton" type="Button" parent="Control/Buttons"]
+layout_mode = 2
+text = "Main Menu
+"
+
+[node name="QuotationLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 595.0
+offset_right = 833.0
+offset_bottom = 724.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_3mh2n")
+theme_override_font_sizes/font_size = 24
+text = "\"Despair is typical of those who do not understand the causes of evil, see no way out, and are incapable of struggle.\"
+V. Lenin"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Control/Buttons/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="Control/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

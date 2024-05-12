@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcle5plv4jlbv"]
+
+[ext_resource type="Script" path="res://Scripts/EnergyMeter.gd" id="1_ue1xg"]
+[ext_resource type="Texture2D" uid="uid://jrghk4x8f2v5" path="res://Assets/EnergyMeter.jpg" id="2_kwfdl"]
+[ext_resource type="Texture2D" uid="uid://b2y2irauxddul" path="res://Assets/Hive.png" id="3_b5f1d"]
+[ext_resource type="Script" path="res://Scripts/DraggableHive.gd" id="4_ka4mn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3xq4"]
+radius = 107.07
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ue1xg")
+mouse_cursor = 2
+
+[node name="EnergyMeterBackground" type="Sprite2D" parent="."]
+texture = ExtResource("2_kwfdl")
+centered = false
+
+[node name="DraggableHive" type="Node2D" parent="." node_paths=PackedStringArray("pin_target", "minigame")]
+position = Vector2(148, 386)
+scale = Vector2(1, 1)
+script = ExtResource("4_ka4mn")
+pin_target = NodePath("../ReferenceRect")
+minigame = NodePath("..")
+
+[node name="Hive" type="Sprite2D" parent="DraggableHive"]
+scale = Vector2(0.625, 0.746377)
+texture = ExtResource("3_b5f1d")
+
+[node name="Area2D" type="Area2D" parent="DraggableHive/Hive"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableHive/Hive/Area2D"]
+shape = SubResource("CircleShape2D_x3xq4")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = 458.0
+offset_top = 425.0
+offset_right = 703.0
+offset_bottom = 667.0
+
+[connection signal="input_event" from="DraggableHive/Hive/Area2D" to="DraggableHive" method="_on_area_2d_input_event"]
