@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu8kpltje2lh0"]
+[gd_scene load_steps=4 format=3 uid="uid://bu8kpltje2lh0"]
 
 [ext_resource type="Script" path="res://Scripts/ReadTheory.gd" id="1_vuaco"]
 [ext_resource type="FontFile" uid="uid://dejjpshyyahc" path="res://Assets/Fonts/Borel/Borel-Regular.ttf" id="2_xslt5"]
+[ext_resource type="FontFile" uid="uid://c4ewcj6xecit6" path="res://Assets/Fonts/Laila/Laila-Regular.ttf" id="3_8vse6"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vuaco")
@@ -23,6 +24,9 @@ offset_top = 166.0
 offset_right = 893.0
 offset_bottom = 656.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_8vse6")
 theme_override_font_sizes/normal_font_size = 30
+text = "\"From each according to his ability, to each according to his needs\"
+	- Karl Marx"
 fit_content = true
 scroll_active = false

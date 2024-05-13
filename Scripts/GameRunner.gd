@@ -70,29 +70,30 @@ func _process(_delta):
 		$InfoButton.visible = current_game.has_info
 
 func pause_game():
-	if paused:
+	if menu_state == MenuState.pause:
+		menu_state = MenuState.none
 		pause_menu.hide()
 		Engine.time_scale = 1
 		CursorCont.restore_cursor_settings()
 		current_game._enable_buttons()
-	else:
+	elif menu_state == MenuState.none:
+		menu_state = MenuState.pause
 		pause_menu.show()
 		current_game._disable_buttons()
 		CursorCont.save_cursor_settings()
 		CursorCont.show_cursor()
 		CursorCont.set_cursor(CursorCont.CursorType.pointer)
 		Engine.time_scale = 0
-	
-	paused = !paused
 
 func show_info():
-	if shown_info:
+	if menu_state == MenuState.info:
+		menu_state = MenuState.none
 		info_menu.hide()
 		Engine.time_scale = 1
-	else:
+	elif menu_state == MenuState.none:
+		menu_state = MenuState.info
 		info_menu.show()
 		Engine.time_scale = 0
-	shown_info = !shown_info
 
 func update_time(new_time):
 	$Timer.value = 100.0 * (1 - (new_time / max_time))

@@ -7,7 +7,7 @@ func _ready():
 	var json_as_dict = JSON.parse_string(json_as_text)
 	if json_as_dict:
 		var quotation_to_use = json_as_dict["quotes"].pick_random()
-		$Quotation.add_text("\"%s\"\n\t- %s" % [quotation_to_use["body"], quotation_to_use["speaker"]])
+		$Quotation.text = "\"%s\"\n\t- %s" % [quotation_to_use["body"], quotation_to_use["speaker"]]
 	
 	CursorCont.hide_cursor()
 
