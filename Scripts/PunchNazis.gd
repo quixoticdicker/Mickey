@@ -17,6 +17,8 @@ func _set_score(score_mult : float) -> void:
 var pow = preload("res://Scenes/Pow.tscn")
 
 func punch_nazi():
+	$PunchSound.play()
+	$OofSound.play()
 	var pow_scene = pow.instantiate()
 	add_child(pow_scene)
 	pow_scene.global_position = get_viewport_rect().size / 2
