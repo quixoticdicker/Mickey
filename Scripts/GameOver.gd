@@ -7,8 +7,8 @@ func _ready():
 	CursorCont.set_cursor(CursorCont.CursorType.pointer)
 
 func _on_replay_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/GameRunner.tscn")
+	SceneTransition.change_scene_to_file("res://Scenes/GameRunner.tscn")
 
 
 func _on_main_menu_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	SceneTransition.change_scene_to_file("res://Scenes/MainMenu.tscn")

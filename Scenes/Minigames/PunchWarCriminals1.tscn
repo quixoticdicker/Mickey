@@ -1,0 +1,224 @@
+[gd_scene load_steps=28 format=3 uid="uid://d04b42q4gcdme"]
+
+[ext_resource type="Script" path="res://PunchWarCriminals1.gd" id="1_6wubr"]
+[ext_resource type="Texture2D" uid="uid://btnnr8o2cjdif" path="res://Assets/PunchWarCriminals_1.png" id="2_h6u4n"]
+[ext_resource type="AudioStream" uid="uid://854nuccikse2" path="res://Assets/Sounds/oof_1.mp3" id="3_f07mu"]
+[ext_resource type="Script" path="res://Scenes/Minigames/Punchable.gd" id="3_hjrdv"]
+[ext_resource type="Texture2D" uid="uid://fxux4ob82ivu" path="res://Assets/PunchedBiden.png" id="4_4s43j"]
+[ext_resource type="AudioStream" uid="uid://ck6hnkjutlarc" path="res://Assets/Sounds/oof_2.mp3" id="4_h8wow"]
+[ext_resource type="AudioStream" uid="uid://c174u5pnejjcg" path="res://Assets/Sounds/oof_3.mp3" id="5_5x4vd"]
+[ext_resource type="Texture2D" uid="uid://xsm3o72408yi" path="res://Assets/PunchedCarter.png" id="5_mmwb4"]
+[ext_resource type="Texture2D" uid="uid://cdtfudcs2o05l" path="res://Assets/PunchedTruman.png" id="6_oxedd"]
+[ext_resource type="AudioStream" uid="uid://36j5jivtrmwi" path="res://Assets/Sounds/oof_4.mp3" id="6_xoxek"]
+[ext_resource type="AudioStream" uid="uid://x6jg4eiqcytl" path="res://Assets/Sounds/oof_5.mp3" id="7_sbb70"]
+[ext_resource type="Texture2D" uid="uid://b2ish82edvvyc" path="res://Assets/PunchedFord.png" id="7_vib55"]
+[ext_resource type="Texture2D" uid="uid://bxh8ddaf6foj2" path="res://Assets/PunchedObama.png" id="8_dxitp"]
+[ext_resource type="AudioStream" uid="uid://cd67tgjf05xtf" path="res://Assets/Sounds/oof_6.mp3" id="8_hyuvn"]
+[ext_resource type="AudioStream" uid="uid://ben32fst8ybjd" path="res://Assets/Sounds/punch.mp3" id="9_qh6iw"]
+[ext_resource type="Texture2D" uid="uid://yylpbuuf05yq" path="res://Assets/PunchedNixon.png" id="9_v81oc"]
+[ext_resource type="Texture2D" uid="uid://dtb515r3xxub8" path="res://Assets/PunchedBushJr.png" id="10_2w7s3"]
+[ext_resource type="FontFile" uid="uid://dejjpshyyahc" path="res://Assets/Fonts/Borel/Borel-Regular.ttf" id="18_d1eib"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgk1m"]
+radius = 87.0
+height = 260.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vla1o"]
+radius = 53.0
+height = 168.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7if2f"]
+radius = 88.0
+height = 248.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrd0p"]
+radius = 67.0
+height = 218.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t4pme"]
+radius = 89.0
+height = 282.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jmpsw"]
+radius = 98.0
+height = 290.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_txoa2"]
+radius = 106.0
+height = 336.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f7r0r"]
+random_pitch = 1.63
+random_volume_offset_db = 0.15
+streams_count = 7
+stream_0/stream = ExtResource("3_f07mu")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_h8wow")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_5x4vd")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_xoxek")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_sbb70")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("7_sbb70")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("8_hyuvn")
+stream_6/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ll5tx"]
+random_pitch = 1.8
+random_volume_offset_db = 0.9
+streams_count = 1
+stream_0/stream = ExtResource("9_qh6iw")
+stream_0/weight = 1.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6wubr")
+mouse_cursor = 0
+has_info = true
+info_text = "Noam Comsky has written at length about the war crimes of our former presidents."
+
+[node name="PunchWarCriminals1" type="Sprite2D" parent="."]
+texture = ExtResource("2_h6u4n")
+centered = false
+
+[node name="PunchableBiden" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(332, 5)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedBiden")
+
+[node name="PunchedBiden" type="Sprite2D" parent="PunchableBiden"]
+visible = false
+position = Vector2(-190, 174)
+texture = ExtResource("4_4s43j")
+
+[node name="Area2D" type="Area2D" parent="PunchableBiden"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableBiden/Area2D"]
+position = Vector2(-185, 172)
+shape = SubResource("CapsuleShape2D_rgk1m")
+
+[node name="PunchableCarter" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(348, 129)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedCarter")
+
+[node name="PunchedCarter" type="Sprite2D" parent="PunchableCarter"]
+visible = false
+position = Vector2(-5, 0)
+texture = ExtResource("5_mmwb4")
+
+[node name="Area2D" type="Area2D" parent="PunchableCarter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableCarter/Area2D"]
+position = Vector2(-7, -3)
+shape = SubResource("CapsuleShape2D_vla1o")
+
+[node name="PunchableTruman" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(587, 172)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedTruman")
+
+[node name="PunchedTruman" type="Sprite2D" parent="PunchableTruman"]
+visible = false
+position = Vector2(-26, 10)
+texture = ExtResource("6_oxedd")
+
+[node name="Area2D" type="Area2D" parent="PunchableTruman"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableTruman/Area2D"]
+position = Vector2(-17, 10)
+shape = SubResource("CapsuleShape2D_7if2f")
+
+[node name="PunchableFord" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(763, 174)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedFord")
+
+[node name="PunchedFord" type="Sprite2D" parent="PunchableFord"]
+visible = false
+position = Vector2(12, 15)
+texture = ExtResource("7_vib55")
+
+[node name="Area2D" type="Area2D" parent="PunchableFord"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableFord/Area2D"]
+position = Vector2(5, 9)
+shape = SubResource("CapsuleShape2D_xrd0p")
+
+[node name="PunchableObama" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(160, 476)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedObama")
+
+[node name="PunchedObama" type="Sprite2D" parent="PunchableObama"]
+visible = false
+position = Vector2(8, 10)
+texture = ExtResource("8_dxitp")
+
+[node name="Area2D" type="Area2D" parent="PunchableObama"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableObama/Area2D"]
+position = Vector2(6, 9)
+shape = SubResource("CapsuleShape2D_t4pme")
+
+[node name="PunchableNixon" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(466, 475)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedNixon")
+
+[node name="PunchedNixon" type="Sprite2D" parent="PunchableNixon"]
+visible = false
+position = Vector2(7, 6)
+texture = ExtResource("9_v81oc")
+
+[node name="Area2D" type="Area2D" parent="PunchableNixon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableNixon/Area2D"]
+position = Vector2(8, 10)
+shape = SubResource("CapsuleShape2D_jmpsw")
+
+[node name="PunchableBushJr" type="Node2D" parent="." node_paths=PackedStringArray("punched_face")]
+position = Vector2(841, 461)
+script = ExtResource("3_hjrdv")
+punched_face = NodePath("PunchedBushJr")
+
+[node name="PunchedBushJr" type="Sprite2D" parent="PunchableBushJr"]
+visible = false
+position = Vector2(5, 19)
+texture = ExtResource("10_2w7s3")
+
+[node name="Area2D" type="Area2D" parent="PunchableBushJr"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PunchableBushJr/Area2D"]
+position = Vector2(4, 36)
+shape = SubResource("CapsuleShape2D_txoa2")
+
+[node name="OofSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_f7r0r")
+
+[node name="PunchSound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ll5tx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 332.0
+offset_top = 5.0
+offset_right = 646.0
+offset_bottom = 54.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("18_d1eib")
+theme_override_font_sizes/font_size = 24
+text = "Punch the war criminals!"
+
+[connection signal="input_event" from="PunchableBiden/Area2D" to="PunchableBiden" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PunchableCarter/Area2D" to="PunchableCarter" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PunchableTruman/Area2D" to="PunchableTruman" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PunchableFord/Area2D" to="PunchableFord" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PunchableObama/Area2D" to="PunchableObama" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PunchableNixon/Area2D" to="PunchableNixon" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="PunchableBushJr/Area2D" to="PunchableBushJr" method="_on_area_2d_input_event"]

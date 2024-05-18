@@ -22,6 +22,7 @@ var minigames : Array[PackedScene] = [
 	preload("res://Scenes/Minigames/Interogation.tscn"),
 	preload("res://Scenes/Minigames/HeatExaustion.tscn"),
 	preload("res://Scenes/Minigames/EnergyMeter.tscn"),
+	preload("res://Scenes/Minigames/PunchWarCriminals1.tscn")
 ]
 var last_played : PackedScene
 var recently_played : Array[PackedScene] = []
@@ -46,6 +47,27 @@ func _draw():
 func _ready():
 	score_label = $Score
 	update_score()
+
+var swapper = func swap_minigame():
+	if current_game == null:
+		current_game.queue_free()
+
+	# add a new minigame. This all insures that we don't play the same game twice
+	if minigames.size() <= 0:
+		minigames = recently_played
+		recently_played = []
+	var chosen_minigame = minigames.pick_random()
+	minigames.erase(chosen_minigame)
+	if last_played != null:
+		recently_played.append(last_played)
+	last_played = chosen_minigame
+	current_game = chosen_minigame.instantiate()
+	current_game.z_as_relative = false
+	current_game.z_index = 0
+	add_child(current_game)
+	current_game.set_parent(self)
+	max_time = current_game.get_max_time()
+	$InfoButton.visible = current_game.has_info
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
@@ -92,6 +114,7 @@ func show_info():
 		Engine.time_scale = 1
 	elif menu_state == MenuState.none:
 		menu_state = MenuState.info
+		info_menu.set_text(current_game._get_info())
 		info_menu.show()
 		Engine.time_scale = 0
 
@@ -109,11 +132,14 @@ func add_score(to_add):
 
 	score = score + to_add
 	update_score()
-	current_game.queue_free()
 
 	if strike_count >= num_strikes:
 		ScoreTrack.score = score
-		get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+		SceneTransition.change_scene_to_file("res://Scenes/GameOver.tscn")
+	else:
+		# we only free if it isn't game over, so the process function doesn't
+		# create a new minigame
+		current_game.queue_free()
 
 # This button controlls the info menu
 func _on_button_pressed():

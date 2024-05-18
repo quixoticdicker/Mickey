@@ -11,7 +11,7 @@ func _ready():
 	CursorCont.set_cursor(CursorCont.CursorType.pointer)
 
 func on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/GameRunner.tscn")
+	SceneTransition.change_scene_to_file("res://Scenes/GameRunner.tscn")
 
 func on_exit_button_pressed():
 	get_tree().quit()

@@ -19,6 +19,7 @@ config/icon="res://Assets/Icon_1.png"
 
 CursorCont="*res://Scripts/CursorController.gd"
 ScoreTrack="*res://Scripts/ScoreTracker.gd"
+SceneTransition="*res://Scenes/SceneTransition.tscn"
 
 [display]
 
