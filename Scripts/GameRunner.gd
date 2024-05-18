@@ -14,6 +14,7 @@ var time : float = 0.0
 var max_time : float = 1.0
 var strike_count : int = 0
 var strike_boxes = []
+var swap_game : bool = false
 
 var minigames : Array[PackedScene] = [
 	preload("res://Scenes/Minigames/PinTheTail.tscn"),
@@ -47,9 +48,10 @@ func _draw():
 func _ready():
 	score_label = $Score
 	update_score()
+	swapper.call()
 
 var swapper = func swap_minigame():
-	if current_game == null:
+	if current_game != null:
 		current_game.queue_free()
 
 	# add a new minigame. This all insures that we don't play the same game twice
@@ -73,23 +75,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		pause_game()
 
-	if current_game == null:
-		# add a new minigame. This all insures that we don't play the same game twice
-		if minigames.size() <= 0:
-			minigames = recently_played
-			recently_played = []
-		var chosen_minigame = minigames.pick_random()
-		minigames.erase(chosen_minigame)
-		if last_played != null:
-			recently_played.append(last_played)
-		last_played = chosen_minigame
-		current_game = chosen_minigame.instantiate()
-		current_game.z_as_relative = false
-		current_game.z_index = 0
-		add_child(current_game)
-		current_game.set_parent(self)
-		max_time = current_game.get_max_time()
-		$InfoButton.visible = current_game.has_info
+	if swap_game:
+		swap_game = false
+		SceneTransition.transition_func(swapper)
 
 func pause_game():
 	if menu_state == MenuState.pause:
@@ -137,9 +125,8 @@ func add_score(to_add):
 		ScoreTrack.score = score
 		SceneTransition.change_scene_to_file("res://Scenes/GameOver.tscn")
 	else:
-		# we only free if it isn't game over, so the process function doesn't
-		# create a new minigame
-		current_game.queue_free()
+		# we only swap game if it isn't game over
+		swap_game = true
 
 # This button controlls the info menu
 func _on_button_pressed():
