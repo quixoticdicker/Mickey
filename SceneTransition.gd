@@ -7,7 +7,7 @@ func change_scene_to_file(target: String) -> void:
 	$AnimationPlayer.play_backwards('bar_slide')
 
 func transition_func(to_run) -> void:
-	$AnimationPlayer.play('square_expand')
+	$AnimationPlayer.play('chevron')
 	await $AnimationPlayer.animation_finished
 	to_run.call()
-	$AnimationPlayer.play_backwards('square_expand')
+	$AnimationPlayer.play_backwards('chevron')
