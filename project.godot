@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Mickey"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Scenes/Splash.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://Assets/Splash.png"
 config/icon="res://Assets/Icon_1.png"
 
 [autoload]

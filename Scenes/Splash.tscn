@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf7swiw2fkxg6"]
+
+[ext_resource type="Texture2D" uid="uid://diu5tm7ytrh5h" path="res://Assets/Splash.png" id="1_c5gs7"]
+[ext_resource type="Script" path="res://Scenes/Splash.gd" id="1_qqvxw"]
+[ext_resource type="AudioStream" uid="uid://cnejnoga2gqhm" path="res://Assets/Sounds/Music/SovietAnthem_intro.mp3" id="2_eq0bb"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qqvxw")
+
+[node name="Splash" type="Sprite2D" parent="."]
+texture = ExtResource("1_c5gs7")
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eq0bb")
+volume_db = -8.0
+autoplay = true

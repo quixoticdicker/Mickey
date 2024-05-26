@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dee654w3lkndh"]
+[gd_scene load_steps=10 format=3 uid="uid://dee654w3lkndh"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_lyjyr"]
 [ext_resource type="FontFile" uid="uid://c0hb2eefparrf" path="res://Assets/Fonts/Titan_One/TitanOne-Regular.ttf" id="2_jfrcg"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://dejjpshyyahc" path="res://Assets/Fonts/Borel/Borel-Regular.ttf" id="3_guckf"]
 [ext_resource type="FontFile" uid="uid://ckielnlo8ge0b" path="res://Assets/Fonts/Lobster/Lobster-Regular.ttf" id="4_4gcap"]
 [ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="5_5weuc"]
+[ext_resource type="AudioStream" uid="uid://b4u5mvmpmcivm" path="res://Assets/Sounds/Music/SovietAnthem_body.mp3" id="7_e7j4d"]
+[ext_resource type="Script" path="res://Scenes/AudioStreamPlayer_Main.gd" id="8_pjrux"]
+[ext_resource type="AudioStream" uid="uid://bv336d534xlci" path="res://Assets/Sounds/Music/SovietAnthem_pickup.mp3" id="9_cx3y5"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -99,3 +102,13 @@ text = "Quit"
 visible = false
 texture = ExtResource("2_wxs2t")
 centered = false
+
+[node name="AudioStreamPlayer_Main" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_e7j4d")
+volume_db = -7.0
+script = ExtResource("8_pjrux")
+
+[node name="AudioStreamPlayer_Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_cx3y5")
+volume_db = -7.0
+autoplay = true

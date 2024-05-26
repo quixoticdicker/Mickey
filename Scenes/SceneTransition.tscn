@@ -262,6 +262,22 @@ tracks/7/keys = {
 "values": [Vector2(1024, 672), Vector2(0, 672)]
 }
 
+[sub_resource type="Animation" id="Animation_qib88"]
+resource_name = "chevron"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chevron/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(503, 785), Vector2(519, -533)]
+}
+
 [sub_resource type="Animation" id="Animation_j2xam"]
 resource_name = "dissolve"
 length = 0.2
@@ -316,22 +332,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qib88"]
-resource_name = "chevron"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Chevron/ColorRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(503, 785), Vector2(519, -533)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u5q5y"]
