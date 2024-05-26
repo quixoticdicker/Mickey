@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpoesx8roqo00"]
+
+[ext_resource type="Script" path="res://Scenes/Minigames/Cityscape.gd" id="1_3i8tu"]
+[ext_resource type="Texture2D" uid="uid://js0e7jar54v4" path="res://Assets/Cityscape.png" id="1_i142a"]
+[ext_resource type="FontFile" uid="uid://dejjpshyyahc" path="res://Assets/Fonts/Borel/Borel-Regular.ttf" id="2_3bc50"]
+[ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="3_idqvf"]
+[ext_resource type="Texture2D" uid="uid://dcpi2ol04tivo" path="res://Assets/Cursor/LensLightProjection.png" id="5_q213w"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_um17j"]
+light_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gl3a0"]
+shader = ExtResource("3_idqvf")
+shader_parameter/amount = 3.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d82e"]
+size = Vector2(55, 28.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3i8tu")
+mouse_cursor = 3
+
+[node name="Label" type="Label" parent="."]
+z_index = 50
+offset_left = 389.0
+offset_top = 96.0
+offset_right = 663.0
+offset_bottom = 145.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_3bc50")
+theme_override_font_sizes/font_size = 24
+text = "Find the cop in the city"
+
+[node name="CityscapeZoomed" type="Sprite2D" parent="."]
+z_index = 2
+material = SubResource("CanvasItemMaterial_um17j")
+position = Vector2(1129, -456)
+texture = ExtResource("1_i142a")
+centered = false
+region_rect = Rect2(1568, 1472, 64, 32)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_gl3a0")
+custom_minimum_size = Vector2(1024, 768)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Cityscape" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_i142a")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="Cityscape"]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cityscape/Area2D"]
+position = Vector2(80, 358.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_5d82e")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("5_q213w")
+offset = Vector2(-8, -16)
+
+[connection signal="input_event" from="Cityscape/Area2D" to="." method="_on_area_2d_input_event"]
