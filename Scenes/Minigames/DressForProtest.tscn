@@ -1,0 +1,227 @@
+[gd_scene load_steps=17 format=3 uid="uid://bwwlln4hgbivq"]
+
+[ext_resource type="Script" path="res://Scripts/DressForProtest.gd" id="1_cc10p"]
+[ext_resource type="Texture2D" uid="uid://rptqs56nolwf" path="res://Assets/DressForProtestBody.png" id="2_am3xf"]
+[ext_resource type="Script" path="res://Scenes/Minigames/DraggableClothes.gd" id="3_br2gd"]
+[ext_resource type="Texture2D" uid="uid://xx6ckcqswffi" path="res://Assets/DressForProtestBandana.png" id="3_tq2k2"]
+[ext_resource type="Texture2D" uid="uid://bgnpep8tolxvd" path="res://Assets/DressForProtestBlackShirt.png" id="4_ugxc6"]
+[ext_resource type="Texture2D" uid="uid://cqsmgmqx2k52m" path="res://Assets/DressForProtestBoots.png" id="5_vrldh"]
+[ext_resource type="Texture2D" uid="uid://bpiauqr761xqi" path="res://Assets/DressForProtestGlasses.png" id="6_w162n"]
+[ext_resource type="Texture2D" uid="uid://ds38yxwdxmtlb" path="res://Assets/DressForProtestN95.png" id="7_cadao"]
+[ext_resource type="Texture2D" uid="uid://bybyujjdk02f6" path="res://Assets/DressForProtestOrangeShirt.png" id="8_og0s1"]
+[ext_resource type="Texture2D" uid="uid://c2fpkwkodvw0s" path="res://Assets/DressForProtestPants.png" id="9_462im"]
+[ext_resource type="Texture2D" uid="uid://cgvy78xcjpw5t" path="res://Assets/DressForProtestPinkHat.png" id="10_sty0a"]
+[ext_resource type="Texture2D" uid="uid://balxktgp5e4t3" path="res://Assets/DressForProtestSandals.png" id="11_tferg"]
+[ext_resource type="Theme" uid="uid://ctyqqea0uakhs" path="res://MenuButtonTheme.tres" id="12_uwdx4"]
+[ext_resource type="Theme" uid="uid://bl7gmya124gr4" path="res://Themes/SubTitle.tres" id="13_ocsiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2tev"]
+size = Vector2(213, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq2k7"]
+size = Vector2(206, 48)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_cc10p")
+max_time = 20.0
+mouse_cursor = 2
+has_info = true
+buttons = NodePath("Buttons")
+
+[node name="DressForProtestBody" type="Sprite2D" parent="."]
+texture = ExtResource("2_am3xf")
+centered = false
+
+[node name="ShirtPlacement" type="ReferenceRect" parent="."]
+offset_left = 367.0
+offset_top = 297.0
+offset_right = 490.0
+offset_bottom = 469.0
+
+[node name="DraggableBlackShirt" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(831, 535)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../ShirtPlacement")
+placement_offset = Vector2(60, 83)
+
+[node name="DressForProtestBlackShirt" type="Sprite2D" parent="DraggableBlackShirt"]
+texture = ExtResource("4_ugxc6")
+
+[node name="Area2D" type="Area2D" parent="DraggableBlackShirt/DressForProtestBlackShirt"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggableBlackShirt/DressForProtestBlackShirt/Area2D"]
+polygon = PackedVector2Array(-74, -62, -86, -95, -48, -113, 18, -121, 78, -121, 71, -78, 52, -73, 78, 16, 84, 87, -74, 123, -90, 65, -81, -2, -59, -66)
+
+[node name="DraggableOrangeShirt" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(127, 287)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../ShirtPlacement")
+placement_offset = Vector2(60, 83)
+
+[node name="DressForProtestOrangeShirt" type="Sprite2D" parent="DraggableOrangeShirt"]
+texture = ExtResource("8_og0s1")
+
+[node name="Area2D" type="Area2D" parent="DraggableOrangeShirt/DressForProtestOrangeShirt"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggableOrangeShirt/DressForProtestOrangeShirt/Area2D"]
+polygon = PackedVector2Array(79, -5, 89, 90, -74, 125, -85, 49, -79, -3, -61, -57, -81, -52, -91, -91, -44, -111, -21, -116, 20, -120, 39, -124, 83, -108, 73, -71, 55, -72)
+
+[node name="MaskPlacement" type="ReferenceRect" parent="."]
+offset_left = 391.0
+offset_top = 202.0
+offset_right = 457.0
+offset_bottom = 257.0
+
+[node name="DraggableN95" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(623, 497)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../MaskPlacement")
+placement_offset = Vector2(18, 24)
+
+[node name="DressForProtestN95" type="Sprite2D" parent="DraggableN95"]
+texture = ExtResource("7_cadao")
+
+[node name="Area2D" type="Area2D" parent="DraggableN95/DressForProtestN95"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggableN95/DressForProtestN95/Area2D"]
+polygon = PackedVector2Array(-84, -2, 4, -32, 83, -31, 82, -12, 20, 34, -65, 16)
+
+[node name="DraggableBanana" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(607, 135)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../MaskPlacement")
+placement_offset = Vector2(28, 38)
+
+[node name="DressForProtestBandana" type="Sprite2D" parent="DraggableBanana"]
+texture = ExtResource("3_tq2k2")
+
+[node name="Area2D" type="Area2D" parent="DraggableBanana/DressForProtestBandana"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggableBanana/DressForProtestBandana/Area2D"]
+polygon = PackedVector2Array(-84, -2, -2, -48, 86, -49, 67, -1, 28, 48, -37, 27)
+
+[node name="ShoePlacement" type="ReferenceRect" parent="."]
+offset_left = 362.0
+offset_top = 693.0
+offset_right = 513.0
+offset_bottom = 740.0
+
+[node name="DraggableBoots" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(759, 384)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../ShoePlacement")
+placement_offset = Vector2(76, 17)
+
+[node name="DressForProtestBoots" type="Sprite2D" parent="DraggableBoots"]
+texture = ExtResource("5_vrldh")
+
+[node name="Area2D" type="Area2D" parent="DraggableBoots/DressForProtestBoots"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableBoots/DressForProtestBoots/Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_w2tev")
+
+[node name="DraggableSandals" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(168, 682)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../ShoePlacement")
+placement_offset = Vector2(78, 25)
+
+[node name="DressForProtestSandals" type="Sprite2D" parent="DraggableSandals"]
+texture = ExtResource("11_tferg")
+
+[node name="Area2D" type="Area2D" parent="DraggableSandals/DressForProtestSandals"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableSandals/DressForProtestSandals/Area2D"]
+shape = SubResource("RectangleShape2D_oq2k7")
+
+[node name="GlassesPlacement" type="ReferenceRect" parent="."]
+offset_left = 384.0
+offset_top = 154.0
+offset_right = 451.0
+offset_bottom = 194.0
+
+[node name="DraggableGlasses" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(785, 161)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../GlassesPlacement")
+placement_offset = Vector2(25, 20)
+
+[node name="DressForProtestGlasses" type="Sprite2D" parent="DraggableGlasses"]
+texture = ExtResource("6_w162n")
+
+[node name="Area2D" type="Area2D" parent="DraggableGlasses/DressForProtestGlasses"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggableGlasses/DressForProtestGlasses/Area2D"]
+polygon = PackedVector2Array(-23, -26, 32, -31, 91, -31, 40, 21, -27, 31, -89, -12)
+
+[node name="PantsPlacement" type="ReferenceRect" parent="."]
+offset_left = 380.0
+offset_top = 531.0
+offset_right = 509.0
+offset_bottom = 665.0
+
+[node name="DraggablePants" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(108, 515)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../PantsPlacement")
+placement_offset = Vector2(56, 49)
+
+[node name="DressForProtestPants" type="Sprite2D" parent="DraggablePants"]
+texture = ExtResource("9_462im")
+
+[node name="Area2D" type="Area2D" parent="DraggablePants/DressForProtestPants"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggablePants/DressForProtestPants/Area2D"]
+polygon = PackedVector2Array(-85, -76, 80, -110, 81, -63, 74, -32, 60, -12, 76, 43, 84, 99, 53, 104, 41, 57, 23, 12, 4, 15, -13, 14, -34, 55, -45, 109, -75, 109, -76, 71, -65, 32, -53, -8, -67, -22, -75, -41)
+
+[node name="HatPlacement" type="ReferenceRect" parent="."]
+offset_left = 341.0
+offset_top = 23.0
+offset_right = 472.0
+offset_bottom = 112.0
+
+[node name="DraggableHat" type="Node2D" parent="." node_paths=PackedStringArray("pin_target_area")]
+position = Vector2(697, 274)
+script = ExtResource("3_br2gd")
+pin_target_area = NodePath("../HatPlacement")
+placement_offset = Vector2(60, 50)
+
+[node name="DressForProtestPinkHat" type="Sprite2D" parent="DraggableHat"]
+texture = ExtResource("10_sty0a")
+
+[node name="Area2D" type="Area2D" parent="DraggableHat/DressForProtestPinkHat"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DraggableHat/DressForProtestPinkHat/Area2D"]
+polygon = PackedVector2Array(-146, -56, 33, -56, 145, -72, 135, -13, 95, 61, 6, 58, -78, 71, -121, 20)
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Button" type="Button" parent="Buttons"]
+offset_left = 533.0
+offset_top = 587.0
+offset_right = 731.0
+offset_bottom = 632.0
+theme = ExtResource("12_uwdx4")
+text = "Ready to go!"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 299.0
+offset_top = 26.0
+offset_right = 651.0
+offset_bottom = 99.0
+theme = ExtResource("13_ocsiy")
+text = "Dress for a protest!"
+
+[connection signal="input_event" from="DraggableBlackShirt/DressForProtestBlackShirt/Area2D" to="DraggableBlackShirt" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableOrangeShirt/DressForProtestOrangeShirt/Area2D" to="DraggableOrangeShirt" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableN95/DressForProtestN95/Area2D" to="DraggableN95" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableBanana/DressForProtestBandana/Area2D" to="DraggableBanana" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableBoots/DressForProtestBoots/Area2D" to="DraggableBoots" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableSandals/DressForProtestSandals/Area2D" to="DraggableSandals" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableGlasses/DressForProtestGlasses/Area2D" to="DraggableGlasses" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggablePants/DressForProtestPants/Area2D" to="DraggablePants" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="DraggableHat/DressForProtestPinkHat/Area2D" to="DraggableHat" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Buttons/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_button_pressed"]
