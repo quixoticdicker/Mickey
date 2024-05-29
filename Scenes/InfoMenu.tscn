@@ -28,7 +28,8 @@ color = Color(0.513726, 0.513726, 0.513726, 0.901961)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 512.0
+offset_bottom = 52.0
 theme = ExtResource("1_trexr")
 text = "Place holder text"
+autowrap_mode = 3

@@ -49,10 +49,10 @@ offset_bottom = 319.0
 
 [node name="InfoMenu" parent="." instance=ExtResource("6_cuiu1")]
 visible = false
-offset_left = 403.0
-offset_top = 293.0
-offset_right = 403.0
-offset_bottom = 293.0
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 256.0
 
 [node name="InfoButton" type="Button" parent="."]
 visible = false

@@ -21,10 +21,12 @@ var minigames : Array[PackedScene] = [
 	preload("res://Scenes/Minigames/PunchNazis.tscn"),
 	preload("res://Scenes/Minigames/ReadTheory.tscn"),
 	preload("res://Scenes/Minigames/Interogation.tscn"),
-	preload("res://Scenes/Minigames/HeatExaustion.tscn"),
+	# heat exaustion scene is a wip
+	#preload("res://Scenes/Minigames/HeatExaustion.tscn"),
 	preload("res://Scenes/Minigames/EnergyMeter.tscn"),
 	preload("res://Scenes/Minigames/PunchWarCriminals1.tscn"),
-	preload("res://Scenes/Minigames/Cityscape.tscn")
+	preload("res://Scenes/Minigames/Cityscape.tscn"),
+	preload("res://Scenes/Minigames/DressForProtest.tscn")
 ]
 var last_played : PackedScene
 var recently_played : Array[PackedScene] = []
